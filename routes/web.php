@@ -20,3 +20,12 @@ Route::get('/', function () {
 use App\Http\Controllers\PersonaController;
 
 Route::get('/personas', [PersonaController::class, 'index']);
+
+Route::get('/personass', function () {
+    $personas = [
+        (object) ['nombre' => 'Juan', 'edad' => 25, 'rol' => 'Estudiante'],
+        (object) ['nombre' => 'Ana', 'edad' => 30, 'rol' => 'Docente']
+    ];
+
+    return view('personass.index', compact('personas'));
+}); //return view('personass.index', ['personas' => $personas]);
